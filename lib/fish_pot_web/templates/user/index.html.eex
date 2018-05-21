@@ -1,0 +1,40 @@
+<h2>Listing Users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>姓</th>
+      <th>名</th>
+      <th>姓(カナ)</th>
+      <th>名(カナ)</th>
+      <th>性別</th>
+      <th>email</th>
+      <th>電話番号</th>
+      <th>パスワード</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.last_name %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_kn_name %></td>
+      <td><%= user.first_kn_name %></td>
+      <td><%= user.gender_cd %></td>
+      <td><%= user.email %></td>
+      <td><%= user.tel %></td>
+      <td><%= user.passwd %></td>
+
+      <td class="text-right">
+        <span><%= link "詳細", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "更新", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "削除", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "新規", to: user_path(@conn, :new) %></span>

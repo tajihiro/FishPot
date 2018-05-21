@@ -1,0 +1,23 @@
+<h2>Show Project</h2>
+
+<ul>
+
+  <li>
+    <strong>Project name:</strong>
+    <%= @project.project_name %>
+  </li>
+
+  <li>
+    <strong>Overview:</strong>
+    <%= @project.overview %>
+  </li>
+
+  <li>
+    <strong>Place:</strong>
+    <%= @project.place %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: project_path(@conn, :edit, @project) %></span>
+<span><%= link "Back", to: project_path(@conn, :index) %></span>

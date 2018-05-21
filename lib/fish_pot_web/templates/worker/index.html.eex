@@ -1,0 +1,44 @@
+<h2>作業者一覧</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>姓</th>
+      <th>名</th>
+      <th>姓(カナ)</th>
+      <th>名(カナ)</th>
+      <th>性別</th>
+      <th>生年月日</th>
+      <th>email</th>
+      <th>電話番号</th>
+      <th>住所</th>
+      <th>担当者</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for worker <- @workers do %>
+    <tr>
+      <td><%= worker.last_name %></td>
+      <td><%= worker.first_name %></td>
+      <td><%= worker.last_kn_name %></td>
+      <td><%= worker.first_kn_name %></td>
+      <td><%= worker.gender_cd %></td>
+      <td><%= worker.birthday %></td>
+      <td><%= worker.email %></td>
+      <td><%= worker.tel %></td>
+      <td><%= worker.address %></td>
+      <td><%= worker.user_id %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: worker_path(@conn, :show, worker), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: worker_path(@conn, :edit, worker), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: worker_path(@conn, :delete, worker), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Worker", to: worker_path(@conn, :new) %></span>

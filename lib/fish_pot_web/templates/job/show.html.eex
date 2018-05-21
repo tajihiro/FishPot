@@ -1,0 +1,23 @@
+<h2>Show Job</h2>
+
+<ul>
+
+  <li>
+    <strong>Job name:</strong>
+    <%= @job.job_name %>
+  </li>
+
+  <li>
+    <strong>Start date:</strong>
+    <%= @job.start_date %>
+  </li>
+
+  <li>
+    <strong>End date:</strong>
+    <%= @job.end_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: job_path(@conn, :edit, @job) %></span>
+<span><%= link "Back", to: job_path(@conn, :index) %></span>

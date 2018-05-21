@@ -1,0 +1,46 @@
+<h2>Fish Pot Project</h2>
+<div class="row">
+    <div class="col">COL A</div>
+    <div class="col">COL B</div>
+    <div class="col">COL C</div>
+    <div class="col">COL D</div>
+</div>
+<div class="row">
+    <div class="col">COL A</div>
+    <div class="col">COL B</div>
+</div>
+<div class="row">
+    <div class="col">COL A</div>
+    <div class="col">COL B</div>
+    <div class="col">COL C</div>
+</div>
+<div class="row">
+    <div class="col-sm-5">COL A</div>
+    <div class="col-sm-3">COL B</div>
+    <div class="col-sm-4">COL C</div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <%= link "User", to: user_path(@conn, :index) %>
+    </div>
+    <div class="col">
+        <%= link "Worker", to: worker_path(@conn, :index) %>
+    </div>
+    <div class="col">
+        <%= link "Company", to: company_path(@conn, :index) %>
+    </div>
+    <div class="col">
+        <%= link "Project", to: project_path(@conn, :index) %>
+    </div>
+    <div class="col">
+        <%= link "Job", to: job_path(@conn, :index) %>
+    </div>
+    <div class="col">
+
+<style>
+    div{
+        padding: 5px 10px;
+        border: 1px solid lightgrey;
+    }
+</style>
