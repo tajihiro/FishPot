@@ -4,6 +4,8 @@ defmodule FishPotWeb.UserController do
   alias FishPot.Admin
   alias FishPot.Admin.User
 
+  plug :authentication when action in [:new, :show, :edit, :create, :update, :delete]
+
   def index(conn, _params) do
     users = Admin.list_users()
     render(conn, "index.html", users: users)
@@ -56,5 +58,16 @@ defmodule FishPotWeb.UserController do
     conn
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: user_path(conn, :index))
+  end
+
+  defp authentication(conn, _opts) do
+    if get_session(conn, :is_login) do
+      conn
+    else
+      conn
+        |> put_flash(:error, "You must be login to access this page!!")
+        |> redirect(to: page_path(conn, :index) )
+        |> halt()
+    end
   end
 end
