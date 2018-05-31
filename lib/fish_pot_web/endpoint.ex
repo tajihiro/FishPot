@@ -11,6 +11,8 @@ defmodule FishPotWeb.Endpoint do
     at: "/", from: :fish_pot, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
+  plug Plug.Static, at: "/uploads", from: "media/"
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do

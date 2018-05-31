@@ -1,0 +1,4 @@
+<h2>upload</h2>
+
+
+<%= render "form.html", Map.put(assigns, :action, upload_path(@conn, :create)) %>

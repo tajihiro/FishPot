@@ -22,6 +22,9 @@ defmodule FishPotWeb.Router do
     get "/auth", AuthController, :authenticate
     get "/logout", AuthController, :logout
 
+    get "/upload", UploadController, :index
+    post "/upload", UploadController, :create
+
     resources "/users", UserController
     resources "/workers", WorkerController
     resources "/companies", CompanyController
